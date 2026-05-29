@@ -44,6 +44,23 @@ SET SQL_SAFE_UPDATES = 0;
 alter table healtcare_dataset
 modify column Date_of_Admission date;
 
-
 DELETE FROM healtcare_dataset
 WHERE Name = '' OR Name IS NULL;
+
+alter table healtcare_dataset
+modify column Age int;
+
+alter table healtcare_dataset
+modify column Date_of_Admission date;
+
+alter table healtcare_dataset
+drop column Date_of_Admission;
+
+alter table healtcare_dataset
+drop column Discharge_Date;
+
+alter table healtcare_dataset
+modify column Billing_Amount bigint;
+
+alter table healtcare_dataset
+modify column Room_Number int;
