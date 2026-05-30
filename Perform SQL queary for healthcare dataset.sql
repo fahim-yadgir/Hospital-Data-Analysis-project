@@ -91,6 +91,24 @@ from healtcare_dataset
 group by Insurance_Provider
 having avg(billing_amount) > 20000;
 
+select name , billing_amount
+from healtcare_dataset
+order by billing_amount desc
+limit 10;
+
+select name , age, hospital
+from healtcare_dataset
+order by age asc;
+
+select hospital , sum(billing_amount) as total_revenue
+from healtcare_dataset
+group by hospital
+order by total_revenue desc;
+
+select doctor , avg(billing_amount) as avg_billing
+from healtcare_dataset
+group by doctor
+order by avg_billing desc;
 
 select name ,gender,Hospital
 from healtcare_dataset;
