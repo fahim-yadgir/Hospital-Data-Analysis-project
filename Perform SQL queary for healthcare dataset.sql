@@ -66,6 +66,32 @@ select doctor , avg(billing_amount)
 from healtcare_dataset
 group by doctor;
 
+select medical_condition , count(*) as patient_count
+from healtcare_dataset
+group by medical_condition
+having count(*) > 5000;
+
+select hospital ,sum(billing_amount)
+from healtcare_dataset
+group by hospital
+having sum(billing_amount) > 1000000 ;
+
+select doctor , count(*) as patient_count
+from healtcare_dataset
+group by doctor
+having count(*) >= 8;
+
+select blood_type , count(*) as patient_count
+from healtcare_dataset
+group by blood_type
+having count(*) > 5500;
+
+select Insurance_Provider , avg(billing_amount)
+from healtcare_dataset
+group by Insurance_Provider
+having avg(billing_amount) > 20000;
+
+
 select name ,gender,Hospital
 from healtcare_dataset;
 
@@ -98,6 +124,8 @@ group by medical_condition;
 select medical_condition , max(age)
 from healtcare_dataset
 group by medical_condition;
+
+
 
 select medical_condition , admission_type,count(*) as total_patient
 from healtcare_dataset
