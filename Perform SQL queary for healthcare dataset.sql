@@ -38,7 +38,33 @@ select name , billing_amount
 from healtcare_dataset
 where billing_amount = (select min(billing_amount) from healtcare_dataset);
 
+select medical_condition ,count(name)
+from healtcare_dataset
+group by medical_condition;
 
+select Insurance_Provider , avg(billing_amount)
+from healtcare_dataset
+group by Insurance_Provider;
+
+select medical_condition , max(billing_amount)
+from healtcare_dataset
+group by medical_condition;
+
+select gender , count(*)
+from healtcare_dataset
+group by gender;
+
+select Blood_Type , count(*)
+from healtcare_dataset
+group by blood_type;
+
+select Hospital , sum(billing_amount)
+from healtcare_dataset
+group by hospital;
+
+select doctor , avg(billing_amount)
+from healtcare_dataset
+group by doctor;
 
 select name ,gender,Hospital
 from healtcare_dataset;
