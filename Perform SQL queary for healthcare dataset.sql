@@ -3,6 +3,43 @@ use healthcare;
 select * from healtcare_dataset;
 
 
+select name , age , gender , medical_condition , hospital ,Billing_amount
+from healtcare_dataset
+where Medical_condition = 'Cancer';
+
+select * from healtcare_dataset
+where blood_type = 'A+';
+
+select * from healtcare_dataset
+where gender = 'Female';
+
+select name , age , gender , medical_condition , test_results
+from healtcare_dataset
+where age >= 60;
+
+select * from healtcare_dataset
+where Admission_Type = 'Emergency';
+
+select distinct medical_condition
+from healtcare_dataset;
+
+select count(name) as total_patient
+from healtcare_dataset;
+
+select avg(age) as avg_age
+from healtcare_dataset;
+
+select name , billing_amount
+from healtcare_dataset
+where billing_amount = (select max(billing_amount)
+						from healtcare_dataset);
+                        
+select name , billing_amount
+from healtcare_dataset
+where billing_amount = (select min(billing_amount) from healtcare_dataset);
+
+
+
 select name ,gender,Hospital
 from healtcare_dataset;
 
