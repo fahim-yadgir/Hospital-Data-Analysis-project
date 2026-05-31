@@ -194,3 +194,9 @@ when age > 60 then 'Senior Citizen'
 when age > 18 then 'Adult'
 end as age_categorize
 from healtcare_dataset;
+
+create view emergency_patients as
+select * from healtcare_dataset
+where admission_type = 'emergency';
+
+select * from emergency_patients;
