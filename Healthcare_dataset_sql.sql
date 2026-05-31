@@ -65,3 +65,7 @@ modify column Billing_Amount bigint;
 alter table healtcare_dataset
 modify column Room_Number int;
 
+select doctor , avg(billing_amount) as avg_billing
+from healtcare_dataset
+group by doctor
+order by avg_billing desc;

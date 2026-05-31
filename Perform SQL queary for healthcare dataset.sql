@@ -177,3 +177,20 @@ where medical_condition = (select medical_condition from healtcare_dataset
 select * from healtcare_dataset
 where doctor = (select doctor from healtcare_dataset
 				where name = 'Andrew Watts');
+                
+-- CASE Statement
+
+select name , billing_amount,
+case
+when billing_amount > 40000 then 'high'
+when billing_amount > 20000 then 'medium'
+else 'low'
+end as billing_catogory
+from healtcare_dataset;
+
+select name , age ,
+case
+when age > 60 then 'Senior Citizen' 
+when age > 18 then 'Adult'
+end as age_categorize
+from healtcare_dataset;
