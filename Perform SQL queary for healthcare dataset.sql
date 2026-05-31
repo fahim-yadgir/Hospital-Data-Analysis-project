@@ -144,7 +144,6 @@ from healtcare_dataset
 group by medical_condition;
 
 
-
 select medical_condition , admission_type,count(*) as total_patient
 from healtcare_dataset
 group by medical_condition , admission_type;
@@ -153,5 +152,28 @@ select age , blood_type , medical_condition
 from healtcare_dataset
 where medical_condition = 'Obesity';
 
+-- Intermediate Questions
 
+select * from healtcare_dataset
+where billing_amount > (select avg(billing_amount) 
+						from healtcare_dataset);
+                        
+select * from healtcare_dataset
+where billing_amount = (select max(billing_Amount) from healtcare_dataset
+						where billing_amount < (select max(billing_amount) from healtcare_dataset));
+                        
+                        
+select * from healtcare_dataset
+where age = (select min(age) from healtcare_dataset);
 
+select * from healtcare_dataset
+where age = (select max(age)from healtcare_dataset);
+
+select * from healtcare_dataset
+where medical_condition = (select medical_condition from healtcare_dataset
+							where name = 'Bobby Jackson');
+                            
+                            
+select * from healtcare_dataset
+where doctor = (select doctor from healtcare_dataset
+				where name = 'Andrew Watts');
