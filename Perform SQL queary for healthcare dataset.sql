@@ -200,3 +200,17 @@ select * from healtcare_dataset
 where admission_type = 'emergency';
 
 select * from emergency_patients;
+
+select * from healtcare_dataset;
+
+select name , Billing_Amount,
+case
+when billing_amount > 0 then 'Allowed'
+when billing_amount < 0 then 'Not_allowed'
+end as billing_categore
+from healtcare_dataset;
+
+select * from healtcare_dataset
+where billing_amount < 0 ;
+
+
