@@ -213,4 +213,8 @@ from healtcare_dataset;
 select * from healtcare_dataset
 where billing_amount < 0 ;
 
+create view Negative_billing_amount as
+select * from healtcare_dataset
+where billing_amount < 0;
 
+select * from Negative_billing_amount;
