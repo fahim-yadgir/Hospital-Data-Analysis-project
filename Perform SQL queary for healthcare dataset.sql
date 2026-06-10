@@ -297,3 +297,18 @@ from healtcare_Dataset
 group by hospital
 order by total_revenue desc
 limit 1;
+
+select doctor , round(avg(billing_amount))
+from healtcare_dataset
+group by doctor;
+
+select Admission_type , count(*) as patient_count
+from healtcare_dataset
+group by Admission_type;
+
+select admission_type , max(billing_amount) as avgbilling
+from healtcare_Dataset
+group by Admission_type
+having avgbilling > avg(billing_amount)
+order by avgbilling desc
+limit 1;
