@@ -218,3 +218,31 @@ select * from healtcare_dataset
 where billing_amount < 0;
 
 select * from Negative_billing_amount;
+
+select * from healtcare_dataset;
+
+
+select name , age
+from healtcare_dataset
+where age = (select max(age)from healtcare_dataset
+			where Medical_condition = 'Cancer');
+            
+select medical_condition,count(*)as patient_count
+from healtcare_dataset
+group by medical_condition
+order by patient_count desc
+limit 1;
+
+select medical_condition ,count(*) as patient_count
+from healtcare_dataset
+group by medical_condition;
+
+select name , age , medical_condition
+from healtcare_dataset
+where medical_condition = 'Diabetes' and
+			age = (select round(avg(age))
+			from healtcare_dataset);
+            
+select name , age , medical_Condition
+from healtcare_dataset
+where medical_condition = 'Diabetes';
