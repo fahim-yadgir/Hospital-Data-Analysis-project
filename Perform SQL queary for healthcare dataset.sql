@@ -243,6 +243,30 @@ where medical_condition = 'Diabetes' and
 			age = (select round(avg(age))
 			from healtcare_dataset);
             
-select name , age , medical_Condition
+select medical_condition , billing_amount
+from healtcare_Dataset
+where billing_amount = (select max(billing_amount) from healtcare_dataset);
+
+select sum(billing_amount)as total_billing_amount
+from healtcare_dataset;
+
+select medical_condition , round(avg(billing_amount))
 from healtcare_dataset
-where medical_condition = 'Diabetes';
+group by medical_condition;
+
+select name , billing_amount
+from healtcare_dataset
+where billing_amount = (select max(billing_amount)from healtcare_dataset);
+
+select name , billing_amount
+from healtcare_Dataset
+order by billing_amount desc
+limit 5;
+
+select name , medical_condition , Insurance_Provider
+from healtcare_Dataset
+where Insurance_Provider = (select max(Insurance_Provider)from healtcare_dataset);
+
+select name , medical_condition , Insurance_Provider , billing_amount
+from healtcare_dataset
+where billing_amount = (select max(billing_amount) from healtcare_dataset);

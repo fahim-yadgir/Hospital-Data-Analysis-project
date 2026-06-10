@@ -69,3 +69,6 @@ select doctor , avg(billing_amount) as avg_billing
 from healtcare_dataset
 group by doctor
 order by avg_billing desc;
+
+alter table healtcare_dataset
+rename column ega to Age;
