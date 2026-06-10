@@ -270,3 +270,30 @@ where Insurance_Provider = (select max(Insurance_Provider)from healtcare_dataset
 select name , medical_condition , Insurance_Provider , billing_amount
 from healtcare_dataset
 where billing_amount = (select max(billing_amount) from healtcare_dataset);
+
+select count(*)as patient_count
+from healtcare_Dataset
+where age = 85;
+
+select doctor , count(*) as patient_count
+from healtcare_dataset
+group by doctor
+order by patient_count desc
+limit 1;
+
+select hospital , count(*) as patient_count
+from healtcare_dataset
+group by hospital
+order by patient_count desc
+limit 1;
+
+select doctor, count(*) as patient_count
+from healtcare_dataset
+group by doctor
+having count(*) > 10;
+
+select hospital , sum(billing_amount) as total_revenue
+from healtcare_Dataset
+group by hospital
+order by total_revenue desc
+limit 1;
