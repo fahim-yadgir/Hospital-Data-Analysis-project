@@ -312,3 +312,50 @@ group by Admission_type
 having avgbilling > avg(billing_amount)
 order by avgbilling desc
 limit 1;
+
+select medical_condition
+,count(*)as patient_count
+from healtcare_dataset
+group by medical_condition
+order by patient_count
+limit 1;
+
+select medical_condition , avg(billing_amount) as avgb
+from healtcare_Dataset
+group by medical_condition;
+
+select doctor , avg(billing_amount) as avg_billing
+from healtcare_dataset
+group by doctor
+order by avg_billing desc;
+
+alter table healtcare_dataset
+rename column ega to Age;
+
+select medication , count(*)as patient_count
+from healtcare_dataset
+group by medication
+order by patient_Count
+limit 1;
+
+select medication , count(*)as patient_count
+from healtcare_dataset
+group by medication;
+
+select medication , round(avg(billing_amount))
+from healtcare_dataset
+group by medication;
+
+select medication , 
+		count(*)as patient_count
+from healtcare_Dataset
+where medical_condition = 'Diabetes'
+group by medication
+order by patient_count desc
+limit 1;
+
+select medication , count(*)as patient_Count
+from healtcare_dataset
+group by medication
+order by patient_count asc
+limit 1;
