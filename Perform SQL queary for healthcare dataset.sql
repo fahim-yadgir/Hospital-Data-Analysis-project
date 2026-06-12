@@ -359,3 +359,31 @@ from healtcare_dataset
 group by medication
 order by patient_count asc
 limit 1;
+
+select Test_Results , count(*)as patient_count
+from healtcare_Dataset
+group by Test_Results;
+
+select medical_condition , count(*) as patient_count
+from healtcare_Dataset
+where test_results = 'abnormal'
+group by medical_condition
+order by patient_count desc
+limit 1;
+
+select name , count(*) as duplicate_count
+from healtcare_dataset
+group by name
+having count(*) > 1
+order by duplicate_count desc;
+
+select * from healtcare_Dataset
+where name is null 
+	or age is null
+    or gender is null
+    or medical_condition is null
+    or billing_amount is null;
+    
+select name,doctor,insurance_provider,billing_amount
+from healtcare_dataset
+where billing_amount < 0;
