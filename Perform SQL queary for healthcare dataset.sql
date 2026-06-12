@@ -387,3 +387,61 @@ where name is null
 select name,doctor,insurance_provider,billing_amount
 from healtcare_dataset
 where billing_amount < 0;
+
+select name , billing_amount
+from healtcare_Dataset
+where billing_Amount > (select avg(billing_amount) from healtcare_dataset);
+
+select avg(billing_amount)from healtcare_Dataset;
+
+select name , billing_Amount
+from healtcare_dataset
+where billing_amount = (select max(billing_amount)from healtcare_dataset 
+						 where billing_amount < (select max(billing_amount)from healtcare_dataset));
+                         
+                         
+select max(billing_amount)from healtcare_Dataset;
+
+
+select doctor , avg(billing_amount) as avg_billing_amount
+from healtcare_Dataset
+group by doctor
+having avg(billing_amount) > 30000
+order by avg_billing_amount desc;
+
+select name , doctor
+from healtcare_dataset
+where doctor = (select doctor
+				from healtcare_Dataset
+                where name = 'Andrew Watts');
+                
+select name , count(*)as patient_count
+from healtcare_dataset
+group by name
+having count(*) > 1
+order by patient_count desc;
+
+select name , doctor
+from healtcare_Dataset
+where name = 'michael williams';
+
+select * from healtcare_Dataset
+where medical_condition = (select medical_condition 
+							from healtcare_Dataset
+                            where name = 'Bobby Jackson');
+                            
+select name ,billing_amount as ba,
+case
+when billing_amount > 50000 then 'high'
+when billing_amount > 20000 then 'medium'
+when billing_amount > 0 then 'low'
+when billing_amount < 0 then 'not_Allowed'
+end as billing_Amount
+from healtcare_dataset
+order by ba desc;
+
+select hospital , sum(billing_amount) as billing_amount
+from healtcare_dataset
+group by hospital
+order by billing_amount desc
+limit 3;
