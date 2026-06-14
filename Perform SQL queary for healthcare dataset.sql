@@ -445,3 +445,38 @@ from healtcare_dataset
 group by hospital
 order by billing_amount desc
 limit 3;
+
+select medical_condition , count(*) as patient_Count
+from healtcare_Dataset
+where test_results = 'abnormal'
+group by medical_condition
+order by patient_Count desc
+limit 1;
+
+select doctor , sum(billing_amount) as billing_amt
+from healtcare_Dataset
+group by doctor
+order by billing_amt desc
+limit 1;
+
+select hospital , avg(billing_amount) as billing_amt
+from healtcare_dataset
+group by hospital
+order by billing_amt desc
+limit 1;
+
+
+select blood_type , avg(billing_amount) as billing_amt
+from healtcare_dataset
+group by blood_type
+order by billing_amt desc
+limit 1;
+
+select * from healtcare_dataset
+where name = '';
+
+select Insurance_Provider , sum(Billing_Amount) as billing_amt
+from healtcare_dataset
+group by Insurance_Provider
+order by billing_amt desc
+limit 3;
