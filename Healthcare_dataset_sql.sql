@@ -82,3 +82,7 @@ sum(billing_amount)over(order by name)as runnig_total_by_gender
 from healtcare_dataset
 where gender = 'Female';
 
+select * ,
+sum(billing_amount) over (order by name)as total_runnig_amount_for_emergency
+from healtcare_dataset
+where Admission_Type = 'Emergency';
