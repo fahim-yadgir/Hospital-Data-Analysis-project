@@ -76,3 +76,9 @@ select name , age , blood_type,
 sum(billing_amount) over (order by name) as blood_type_runnig
 from healtcare_dataset
 where blood_type = 'O-';
+
+select * ,
+sum(billing_amount)over(order by name)as runnig_total_by_gender
+from healtcare_dataset
+where gender = 'Female';
+
