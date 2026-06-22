@@ -65,6 +65,14 @@ modify column Billing_Amount bigint;
 alter table healtcare_dataset
 modify column Room_Number int;
 
+create view Runnig_total as
+select *,
+	sum(Billing_Amount) over (order by name)as runnig_total
+from healtcare_dataset
+end ;
+select * from Runnig_total;
 
-
-
+select name , age , blood_type,
+sum(billing_amount) over (order by name) as blood_type_runnig
+from healtcare_dataset
+where blood_type = 'O-';
