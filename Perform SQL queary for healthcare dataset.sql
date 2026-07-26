@@ -481,4 +481,10 @@ group by Insurance_Provider
 order by billing_amt desc
 limit 3;
 
+select * from healtcare_dataset;
 
+create view `Blood_type_O-` as
+select * from healtcare_dataset
+where Blood_type = 'O-';
+
+select * from `Blood_type_O-`;
