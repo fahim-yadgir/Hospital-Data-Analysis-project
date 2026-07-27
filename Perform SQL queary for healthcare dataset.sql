@@ -488,3 +488,31 @@ select * from healtcare_dataset
 where Blood_type = 'O-';
 
 select * from `Blood_type_O-`;
+
+delimiter $$
+create procedure Medical_condition_cancer_revenue()
+begin
+select `name`, age,Gender,Medical_condition,
+		sum(Billing_amount) over(order by `name`)as Runnig_total
+        from healtcare_dataset
+        where medical_condition = 'Cancer';
+end $$
+delimiter ;
+
+drop procedure Medical_condition_cancer_revenue;
+
+call Medical_condition_cancer_revenue();
+
+delimiter $$
+create procedure Update_billing_amount(
+in p_name varchar(100),
+in p_billing_amount bigint
+)
+begin
+update healtcare_dataset
+set Billing_amount = p_billing_amount
+where `name` = p_name;
+end$$
+delimiter ;
+
+call Update_billing_amount('Bobby Jackson',20000);
