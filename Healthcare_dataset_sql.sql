@@ -86,3 +86,24 @@ select * ,
 sum(billing_amount) over (order by name)as total_runnig_amount_for_emergency
 from healtcare_dataset
 where Admission_Type = 'Emergency';
+
+select `name`,count(*)
+from healtcare_dataset
+group by `name`;
+
+delimiter $$
+
+create procedure Update_test_result
+(
+in p_name varchar(100),
+in P_age int,
+in P_test_r varchar(100)
+)
+begin
+update healtcare_dataset
+set Test_Results = P_test_r
+where `name` = p_name and Age = P_age;
+select * from healtcare_dataset;
+end $$
+drop procedure Update_test_result;
+call Update_test_result ('Bobby Jackson',30,'Abnormal');
