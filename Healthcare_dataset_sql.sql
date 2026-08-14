@@ -126,3 +126,13 @@ group by age;
 select `name` , age , billing_amount 
 from healtcare_dataset
 where age = 85 and billing_amount > 40000;
+
+select `name` , sum(billing_amount)as total_billing_Amount,count(*)as total_count
+from healtcare_dataset
+group by `name`
+order by total_count desc;
+
+select Hospital , sum(billing_amount)as total_billing,count(*)as total_Count
+from healtcare_dataset
+group by Hospital
+order by total_Count desc;
