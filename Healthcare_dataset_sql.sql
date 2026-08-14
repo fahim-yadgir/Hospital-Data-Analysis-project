@@ -107,3 +107,22 @@ select * from healtcare_dataset;
 end $$
 drop procedure Update_test_result;
 call Update_test_result ('Bobby Jackson',30,'Abnormal');
+
+select age , count(*)as total_count
+from healtcare_dataset
+group by age
+order by age ;
+
+select  age , count(*)as total_count
+from healtcare_dataset
+where age = 85 and billing_amount > 40000
+group by age;
+
+select age , count(*)as total_count
+from healtcare_dataset
+where age = 85
+group by age;
+
+select `name` , age , billing_amount 
+from healtcare_dataset
+where age = 85 and billing_amount > 40000;
