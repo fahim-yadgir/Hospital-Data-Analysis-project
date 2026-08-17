@@ -136,3 +136,12 @@ select Hospital , sum(billing_amount)as total_billing,count(*)as total_Count
 from healtcare_dataset
 group by Hospital
 order by total_Count desc;
+
+select * from healtcare_dataset;
+
+select `name` ,count(*)as total_count
+from healtcare_dataset
+where age > 54 and billing_amount > 40000 and Test_Results = 'Normal'
+group by `name`
+order by total_count desc;
+
