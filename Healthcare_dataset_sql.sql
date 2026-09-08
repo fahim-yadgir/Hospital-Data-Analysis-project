@@ -145,3 +145,25 @@ where age > 54 and billing_amount > 40000 and Test_Results = 'Normal'
 group by `name`
 order by total_count desc;
 
+select `name`,count(*)as total_Count
+from healtcare_dataset
+group by `name`;
+
+drop procedure Update_blood_type;
+
+delimiter $$
+create procedure Update_blood_type
+(
+in p_name text,
+in blood_type text
+)
+begin 
+update healtcare_dataset
+set Blood_Type = blood_type
+where `name` = p_name;
+select * from healtcare_dataset;
+end $$
+delimiter ;
+start transaction;
+call Update_blood_type("Bobby Jackson" , "B-");
+rollback;
