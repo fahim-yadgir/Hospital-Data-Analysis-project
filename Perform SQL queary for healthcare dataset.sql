@@ -516,3 +516,13 @@ end$$
 delimiter ;
 
 call Update_billing_amount('Bobby Jackson',20000);
+
+select Insurance_Provider , sum(Billing_Amount)as total_amount_cover
+from healtcare_dataset
+group by Insurance_Provider
+order by total_amount_cover desc;
+
+select Hospital , count(Room_Number)as count_hospital
+from healtcare_dataset
+group by Hospital
+order by count_hospital desc;
