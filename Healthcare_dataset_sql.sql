@@ -167,3 +167,12 @@ delimiter ;
 start transaction;
 call Update_blood_type("Bobby Jackson" , "B-");
 rollback;
+
+select Age , Medical_Condition , Insurance_Provider ,Billing_Amount
+from (
+	select Age , Medical_Condition , Insurance_Provider ,Billing_Amount,dense_rank() over(partition by Medical_Condition order by Billing_Amount desc)as top_rank
+    from healtcare_dataset
+)as sub
+where top_rank = 1;
+
+
