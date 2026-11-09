@@ -175,4 +175,7 @@ from (
 )as sub
 where top_rank = 1;
 
-
+select `name` , count(*)as total_count
+from healtcare_dataset
+group by `name`
+order by total_count desc;
